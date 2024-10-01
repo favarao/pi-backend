@@ -107,6 +107,7 @@ export default class EventoDAO{
     
         try {
             const [rows] = await conexao.execute(sql, parametros);
+            await global.poolConexoes.releaseConnection(conexao);
             const eventos = rows.map(row => new Evento(row.id, row.nome, row.cidade, row.endereco, row.data, row.descricao, row.valor, row.quantidade, row.status));
             return eventos;
         } catch (erro) {

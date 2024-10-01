@@ -25,7 +25,7 @@ class EventoController {
                     if(evento.length == 0)
                         res.status(404).json({ status: false, message: 'Evento não encontrado' });
                     else
-                        res.status(200).json(evento);                        
+                        res.status(200).json(evento[0]);                        
                 }).catch(erro => {
                     res.status(500).json({ status: false, message: 'Erro ao buscar o evento' });
                 });
